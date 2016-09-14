@@ -1,6 +1,6 @@
 {
   "name": "download-q",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Download queue using promises, allowing concurrent downloads and piping data.",
   "main": "downloadq.js",
   "scripts": {
