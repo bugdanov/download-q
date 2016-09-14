@@ -1,0 +1,16 @@
+{
+  "name": "download-q",
+  "version": "1.0.0",
+  "description": "Download queue using promises, allowing concurrent downloads and piping data.",
+  "main": "downloadq.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rurik.bugdanov@alsenet.com",
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "follow-redirects": "^0.2.0",
+    "microtime": "^2.1.1",
+    "q": "^1.4.1"
+  }
+}
