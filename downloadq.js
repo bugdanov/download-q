@@ -54,6 +54,7 @@ function download(options){
   var showProgress=options.download.showProgress;
   var pipe=options.download.pipe;
   var inplace=options.download.inplace;
+  var file;
 
   var q=Q.defer();
   var protocol=url.substr(0,url.search(':'));
@@ -73,7 +74,7 @@ function download(options){
         if (err) {
           // assume destination file does not exists
           try {
-            var file = fs.createWriteStream(destFilename);
+            file = fs.createWriteStream(destFilename);
           } catch(e) {
             q2.reject(e);
             return;
@@ -91,12 +92,13 @@ function download(options){
           inplace=false;
           destFilename=dest+'.'+microtime.now()+'.crdownload';
           try {
-            var file = fs.createWriteStream(destFilename);
+            file = fs.createWriteStream(destFilename);
           } catch(e) {
             q2.reject(e);
             return;
           }
         }
+        q2.resolve();
 
       });
 
@@ -104,7 +106,7 @@ function download(options){
       q2=Q.when();
     }
 
-    q2.then(function(){
+    q2.promise.then(function(){
 
 //      console.log(response.headers);
       if (pipe) {
